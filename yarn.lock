@@ -1863,6 +1863,11 @@ image-size@1.0.0:
   dependencies:
     queue "6.0.2"
 
+imgix@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/imgix/-/imgix-0.0.2.tgz#4c619746a4d59a876257854935f4547d8a707c0e"
+  integrity sha1-TGGXRqTVmodiV4VJNfRUfYpwfA4=
+
 import-fresh@^3.0.0, import-fresh@^3.2.1:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.3.0.tgz#37162c25fcb9ebaa2e6e53d5b4d88ce17d9e0c2b"
