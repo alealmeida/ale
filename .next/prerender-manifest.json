@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 {"version":3,"routes":{},"dynamicRoutes":{},"preview":{"previewModeId":"9f9f17d90efb6e3cbc7f9b9712ec2599","previewModeSigningKey":"0a14f8d55e2cdecfba8b53a4cb0a1c4d08e001c2a08718eecbb3e80d88ef02da","previewModeEncryptionKey":"ee00770a675a820802a569635fb237a8a9e4b45f6a286cefac25a21135bf23c9"},"notFoundRoutes":[]}
+=======
+<<<<<<< HEAD
+{"version":3,"routes":{},"dynamicRoutes":{},"preview":{"previewModeId":"4fda6bc68a347396d6ce5c43877b01a0","previewModeSigningKey":"94724a678a66d8519f727da9b4daa7d069c93fd8dbdb6f3893510831559935e4","previewModeEncryptionKey":"15af9fcff5f2402f1c08e7732b397d6a190b5c11fbab0efdbfbf1c487d3173c2"},"notFoundRoutes":[]}
+=======
+{"version":3,"routes":{},"dynamicRoutes":{},"preview":{"previewModeId":"7ff242f44a5c2ac131c43e75597451b9","previewModeSigningKey":"bcaa120a13bb29e62e5046d1c65844245a6c0751d57c79aab87938d6fa3f29f6","previewModeEncryptionKey":"c2f7838f15d5f32454c56eac55ec86d5efcd03d74a2ea106c8c35da8c73cba30"},"notFoundRoutes":[]}
+>>>>>>> config_local
+>>>>>>> 03fa30025f350e724ae660a13d5df99355b172b2
