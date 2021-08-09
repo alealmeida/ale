@@ -4,10 +4,9 @@ import { HeaderJobs } from '../components/header/header';
 const Home = () => {
   return (
     <div>
-      <HeaderJobs  />
+      {/* <HeaderJobs  /> */}
       <div>
-        <h2>Página inicial</h2>
-        <h1>Ale Almeida</h1>
+        <h2>Soon</h2>
       </div>
     </div>
   )
