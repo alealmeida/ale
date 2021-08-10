@@ -5,11 +5,9 @@ import { fetchAPI} from "../../lib/api";
 import css from "./header.module.sass";
 
 export const HeaderJobs = () => {
-  const { query } = useRouter()
   const { data, error } = useSWR(`/api/work/`,
     fetchAPI
   )
-
   if (error) return <div>{error.message}</div>
   if (!data) return <div>Loading...</div>
   return (
@@ -21,7 +19,10 @@ export const HeaderJobs = () => {
     </li>
     {data.map((p, i) =>
     <li>
-      <Link href="/[slug]" as={`/${p.slug}`}>
+      <Link href={{
+              pathname: '/[slug]',
+              query: { slug: p.slug },
+            }} as={`/${p.slug}`}>
         <a>{p.name}</a>
       </Link>
     </li>

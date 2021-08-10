@@ -5,7 +5,7 @@ import { HeaderJobs } from '../../components/header/header';
 export default function Job() {
   const { query } = useRouter()
   const { data, error } = useSWR(
-    () => query.id && `/api/work/${query.id}`,
+    () => query.id && `/${query.id}`,
     fetchAPI 
   )
 

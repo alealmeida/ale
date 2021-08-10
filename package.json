@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next -p 8080",
+    "dev": "next",
     "build": "next build",
-    "start": "next start -p 8080",
+    "start": "next start -p 5000",
     "prod": "next export"
   },
   "dependencies": {
