@@ -1,15 +1,17 @@
-import styles from '../styles/Home.module.css'
-import { HeaderJobs } from '../components/header/header';
+import React from 'react';
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import Layout from '../components/layout/layout';
 
-const Home = () => {
-  return (
+
+const Home = () => (
+  <Layout>
+    <Head>
+      <title>Home</title>
+    </Head>
     <div>
-      <HeaderJobs  />
-      <div>
-        <h2>Soon</h2>
-      </div>
+      <h2>Soon</h2>
     </div>
-  )
-}
-
+  </Layout>
+)
 export default Home;

@@ -16,14 +16,6 @@ module.exports = {
 /* Add Your Scss File Folder Path Here */
 sassOptions: {
 includePaths: [path.join(__dirname, 'styles')],
-}
+},
+trailingSlash: true
 };
-module.exports = {
-  trailingSlash: true,
-  exportPathMap: () => (
-      {
-        '/': { page: '/' },
-        'about': { page: 'about' },
-      }
-  )
-}
