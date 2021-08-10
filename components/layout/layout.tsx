@@ -1,12 +1,4 @@
-import HeaderJobs from './layout'
 
-const Layout = props => (
-  <div>
-    <HeaderJobs />
-    <div>
-      {props.children}
-    </div>
-  </div>
-)
+const Layout = props => props.children
 
 export default Layout

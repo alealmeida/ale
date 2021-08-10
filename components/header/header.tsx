@@ -1,29 +1,38 @@
-import Link from 'next/link';
-import css from "./header.module.sass";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-export const HeaderJobs = () => {
+const Header = ({ jobs }) => {
+  const router = useRouter();
+  const { id } = router.query;
   return (
-  <ul className={css.list}>
-    <li>
-      <Link href="/">
-        <a>Início</a>
-      </Link>
-    </li>
-    {data.map((p, i) =>
-    <li>
-      <Link prefetch href={{
-              pathname: '/j',
-              query: { slug: p.slug },
-            }} as={`/${p.slug}`}>
-        <a>{p.name}</a>
-      </Link>
-    </li>
-    )}
-    <li>
-      <Link href="/about">
-        <a>Sobre</a>
-      </Link>
-    </li>
-  </ul>
-  )
-}
+    <header>
+      <ul>
+        <li>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+        </li>
+        {jobs.map((j) => (
+          <li key={j.id}>
+            <Link
+              href={{
+                pathname: "/[slug]",
+                query: { slug: j.slug },
+              }}
+            >
+              <a>{j.slug}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </header>
+  );
+};
+
+
+export default Header;
