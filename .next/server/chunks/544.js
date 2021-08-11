@@ -2,29 +2,29 @@ exports.id = 544;
 exports.ids = [544];
 exports.modules = {
 
-/***/ 7544:
+/***/ 544:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-module.exports = __webpack_require__(3857)
+module.exports = __webpack_require__(857)
 
 
 /***/ }),
 
-/***/ 3857:
+/***/ 857:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 var __webpack_unused_export__;
 
 
-var _interopRequireDefault = __webpack_require__(2426);
+var _interopRequireDefault = __webpack_require__(426);
 
 __webpack_unused_export__ = true;
 exports.default = void 0;
 
-var _react = _interopRequireDefault(__webpack_require__(9297));
+var _react = _interopRequireDefault(__webpack_require__(297));
 
-var _utils = __webpack_require__(7579);
+var _utils = __webpack_require__(579);
 
 __webpack_unused_export__ = _utils.AppInitialProps;
 __webpack_unused_export__ = _utils.NextWebVitalsMetric;
@@ -60,7 +60,7 @@ App.getInitialProps = appGetInitialProps;
 
 /***/ }),
 
-/***/ 2426:
+/***/ 426:
 /***/ (function(module) {
 
 function _interopRequireDefault(obj) {

@@ -16,8 +16,8 @@ class MyApp extends App {
   return { pageProps }
 }
     render() {
-      const {Component, pageProps} = this.props
-      
+      const {Component, pageProps, router} = this.props
+      console.log(pageProps.jobs)
       return (
         <ApolloProvider client={client}>
           <Component {...pageProps}  />

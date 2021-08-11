@@ -4,7 +4,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 2011:
+/***/ 11:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17,9 +17,9 @@ __webpack_require__.d(__webpack_exports__, {
 });
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(5282);
+var jsx_runtime_ = __webpack_require__(282);
 // EXTERNAL MODULE: ./node_modules/next/app.js
-var app = __webpack_require__(7544);
+var app = __webpack_require__(544);
 ;// CONCATENATED MODULE: external "@apollo/client"
 var client_namespaceObject = require("@apollo/client");;
 ;// CONCATENATED MODULE: ./lib/apollo.js
@@ -64,8 +64,10 @@ class MyApp extends app.default {
   render() {
     const {
       Component,
-      pageProps
+      pageProps,
+      router
     } = this.props;
+    console.log(pageProps.jobs);
     return /*#__PURE__*/jsx_runtime_.jsx(client_namespaceObject.ApolloProvider, {
       client: apollo,
       children: /*#__PURE__*/jsx_runtime_.jsx(Component, _objectSpread({}, pageProps))
@@ -78,7 +80,7 @@ class MyApp extends app.default {
 
 /***/ }),
 
-/***/ 7579:
+/***/ 579:
 /***/ (function(module) {
 
 "use strict";
@@ -86,7 +88,7 @@ module.exports = require("next/dist/next-server/lib/utils.js");;
 
 /***/ }),
 
-/***/ 9297:
+/***/ 297:
 /***/ (function(module) {
 
 "use strict";
@@ -94,7 +96,7 @@ module.exports = require("react");;
 
 /***/ }),
 
-/***/ 5282:
+/***/ 282:
 /***/ (function(module) {
 
 "use strict";
@@ -109,7 +111,7 @@ module.exports = require("react/jsx-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [544], function() { return __webpack_exec__(2011); });
+var __webpack_exports__ = __webpack_require__.X(0, [544], function() { return __webpack_exec__(11); });
 module.exports = __webpack_exports__;
 
 })();

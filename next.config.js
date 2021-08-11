@@ -17,5 +17,15 @@ module.exports = {
 sassOptions: {
 includePaths: [path.join(__dirname, 'styles')],
 },
-trailingSlash: true
+trailingSlash: true,
+exportPathMap: async function (
+  defaultPathMap,
+  { dev, dir, outDir, distDir, buildId }
+) {
+  return {
+    '/about': { page: '/about' },
+    '/jobs/caixa': { page: '/jobs', query: { slug: 'caixa' } },
+    '/jobs/pop': { page: '/jobs', query: { slug: 'pop' } },
+  }
+},
 };

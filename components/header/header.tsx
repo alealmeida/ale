@@ -2,8 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Header = ({ jobs }) => {
-  const router = useRouter();
-  const { id } = router.query;
   return (
     <header>
       <ul>
@@ -17,11 +15,11 @@ const Header = ({ jobs }) => {
             <a>About</a>
           </Link>
         </li>
-        {jobs.data.map((j) => (
+        {jobs.map((j) => (
           <li key={j.id}>
             <Link
               href={{
-                pathname: "/[slug]",
+                pathname: "/jobs/[slug]",
                 query: { slug: j.slug },
               }}
               as={`/jobs/${j.slug}`}
