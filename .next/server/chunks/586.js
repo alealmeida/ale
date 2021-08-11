@@ -39,7 +39,7 @@ const Header = ({
             children: "About"
           })
         })
-      }), jobs.map(j => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+      }), jobs.data.map(j => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
         children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__.default, {
           href: {
             pathname: "/[slug]",
@@ -47,6 +47,7 @@ const Header = ({
               slug: j.slug
             }
           },
+          as: `/jobs/${j.slug}`,
           children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
             children: j.slug
           })

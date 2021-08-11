@@ -17,13 +17,14 @@ const Header = ({ jobs }) => {
             <a>About</a>
           </Link>
         </li>
-        {jobs.map((j) => (
+        {jobs.data.map((j) => (
           <li key={j.id}>
             <Link
               href={{
                 pathname: "/[slug]",
                 query: { slug: j.slug },
               }}
+              as={`/jobs/${j.slug}`}
             >
               <a>{j.slug}</a>
             </Link>

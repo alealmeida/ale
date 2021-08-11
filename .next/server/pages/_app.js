@@ -45,6 +45,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 class MyApp extends app.default {
+  static async getInitialProps({
+    Component,
+    router,
+    ctx
+  }) {
+    let pageProps = {};
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+
+    return {
+      pageProps
+    };
+  }
+
   render() {
     const {
       Component,
