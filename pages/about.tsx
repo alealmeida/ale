@@ -1,15 +1,12 @@
-import Layout from '../components/layout/layout';
-
 const About = () => {
-  return (
-    <Layout>
-      <header>
-        <h2>Sobre Ale</h2>
-        <h1>Almeida</h1>
-      </header>
-      <section>Lorem ipsum</section>
-      <footer>Esse é o footer</footer>
-    </Layout>
-  )
+    return (
+        <section>
+            <header>
+                <h1>Almeida</h1>
+                <h2>Sobre mim</h2>
+            </header>
+        </section>
+    )
 }
+
 export default About

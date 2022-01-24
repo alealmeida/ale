@@ -1,3 +1,6 @@
+
+import React from 'react'
+import ReactMarkdown from "react-markdown";
 import styles from './slug.module.sass';
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { ColorType } from './../../types/color.interface';
@@ -7,7 +10,6 @@ import Image from 'next/image'
 import urlBuilder from '../../lib/imageUrl'
 import client from '../../lib/apollo';
 import { GetAllJobsQuery, GetJobBySlugQuery } from '../../graphql/jobsc.query';
-
 
 
 
@@ -30,7 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug } = params;
-	
+
 	const { data } = await client
 		.query({ query: GetJobBySlugQuery, variables: { slug } })
 		.then((result) => {
@@ -48,7 +50,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		main_content: data.infos.main_content,
 		page_content: data.infos.page_content
 	};
-
 
 	const low_brand = infos.brand.toLowerCase().split(" ")[0];
 
@@ -71,6 +72,7 @@ type JobsProps = {
 		job: {
 			title: string;
 			short_description: string;
+			description: string;
 			year: string;
 		}
 		brand: string;
@@ -111,7 +113,7 @@ type MediaProps = {
 
 type MainContentProps = {
 	title: string;
-	content: string;
+	content:  string;
 	main_media: MediaProps;
 };
 
@@ -180,8 +182,8 @@ const Hero = styled.header<HeroProps>
 		width: 100vw;
 		height: 100%;
 		display:flex;
-		background: var(--color-${({ brand, color }) => getBackground(color, brand)});
-		justify-content:center
+		background: var(--color-${({ brand, color }) => getBackground(color, brand)}-dark);
+		justify-content:center;
 		`;
 
 
@@ -197,68 +199,74 @@ const Hero = styled.header<HeroProps>
 const Page = ({ data, infos, content, low_brand }: JobsProps) => {
 	if (!data || data === null) return <div>Experiência não encontrada</div>;
 
-	const hero = content.hero.data.attributes;
-	console.log(content.main_content)
-
+	const {main_content, page_content, hero} = content
+	const hero_attr = hero.data.attributes;
 
 	return (
-		<>
+		<div id={low_brand}>
 			<section key={1} className={styles.job_page}>
-				<Hero brand={low_brand}>
-					<Image src={urlBuilder(hero.url)} alt={hero.name} objectFit="contain" width={hero.width} height={hero.height} />
-				</Hero>
-				<article>
-					<header>
-						<h2>{infos.brand} / {infos.product}</h2>
-						<aside>{infos.job.year}</aside>
-					</header>
-					<div className={styles.content}>
-						<h1>{infos.job.title}</h1>
-					</div>
-				</article>
-			</section>
+				<section className={styles.header_content}>
+					<Hero brand={low_brand}>
+						<Image src={urlBuilder(hero_attr.url)} alt={hero_attr.name} objectFit="cover" width={hero_attr.width} height={hero_attr.height} />
+					</Hero>
+					<article>
+						<header>
+							<h2>{infos.brand} / {infos.product}</h2>
+							<aside>{infos.job.year}</aside>
+						</header>
+						<div className={styles.content}>
+							<h1>{infos.job.title}</h1>
+							<p>{infos.job.description}</p>
+						</div>
+					</article>
+				</section>
 
-			{content.main_content && (
-				<section key={2}  className={styles.main_content}>
-					
-					{content.main_content.map(main => ([
-						<article>
-							<div className={styles.content}>
-								<header> <h3>{main.title}</h3> </header>
-								<p>{main.content}</p>
-							</div>
-							<div className={styles.content}>
-								<div className={styles.bg_content} style={{ "background": `var(${main.main_media.bg_color})`, "padding": "4em 0" }}>
-									<Image src={urlBuilder(main.main_media.media.data.attributes.url)} objectFit="contain" width={main.main_media.media.data.attributes.width} height={main.main_media.media.data.attributes.height} />
+				{main_content && (
+					<section key={2}  className={styles.main_content}>
+						
+						{main_content.map(main =>([
+							<article>
+								<div className={styles.content}>
+									
+									<ReactMarkdown className={styles.contentMarkdown}>
+									{main.content}
+									</ReactMarkdown>
 								</div>
-							</div>
-
-						</article>])
-					)}
-				</section>
-			)}
-	
-			{content.page_content && (
-				<section  key={3} className={styles.page_content}>
-					{content.page_content.map(page_content => ([
-						<article>
-							<div className={styles.content}>
-								{page_content.title ? <header> <h3>{page_content.title}</h3> </header> : null}
-								{page_content.content ? <p>{page_content.content}</p> : null}
-							</div>
-							<div className={styles.content}>
-								{page_content.content_media.map((args,i) => (
-									<div key={i} className={styles.bg_content} style={{ "background": `var(${args.bg_color})`, "padding": "4em 0" }}>
-										<Image src={urlBuilder(args.media.data.attributes.url)} objectFit="contain" width={args.media.data.attributes.width} height={args.media.data.attributes.height} />
+								<div className={styles.content}>
+									<div className={styles.bg_content} style={{ "background": `var(${main.main_media.bg_color})`, "padding": "4em 0" }}>
+										<Image src={urlBuilder(main.main_media.media.data.attributes.url)} objectFit="contain" width={main.main_media.media.data.attributes.width} height={main.main_media.media.data.attributes.height} />
 									</div>
-								))}
-							</div>
-						</article>
-					])
-					)}
-				</section>
-			)}
-		</>
+								</div>
+
+							</article>])
+						)}
+					</section>
+				)}
+	
+				{page_content && (
+					<section  key={3} className={styles.page_content}>
+						{page_content.map(page_content => ([
+							<article>
+								<div className={styles.content}>
+								<ReactMarkdown className={styles.contentMarkdown}>
+									
+								{page_content.content}
+									</ReactMarkdown>
+								</div>
+								<div className={styles.content}>
+									{page_content.content_media.map((args,i) => (
+										<div key={i} className={styles.bg_content} style={{ "background": `var(${args.bg_color})`, "padding": "4em 0" }}>
+											<Image src={urlBuilder(args.media.data.attributes.url)} objectFit="contain" width={args.media.data.attributes.width} height={args.media.data.attributes.height} />
+										</div>
+									))}
+								</div>
+							</article>
+						])
+						)}
+					</section>
+				)}
+			</section>
+		</div>
 	)
 }
 

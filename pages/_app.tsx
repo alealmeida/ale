@@ -1,29 +1,24 @@
-import App from "next/app";
-import Head from "next/head";
-import { ApolloProvider } from "@apollo/client";
+// import App from "next/app";
+import type {AppProps}
+from 'next/app'
+import {ApolloProvider} from '@apollo/client';
 import client from "../lib/apollo";
 import '../styles/global.sass'
+import '../styles/design.tokens.sass'
+import Layout from '../components/layout/layout'
 
 
 
-class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
-  let pageProps = {}
+export default function App({Component, pageProps, router} : AppProps) {
+    return (
+        <Layout {...pageProps}>
+            <ApolloProvider client={client}>
+                <Component {...pageProps}/>
+            </ApolloProvider>
+        </Layout>
+    )
 
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx)
-  }
-  return { pageProps }
 }
-    render() {
-      const {Component, pageProps, router} = this.props
-      console.log(pageProps.jobs)
-      return (
-        <ApolloProvider client={client}>
-          <Component {...pageProps}  />
-        </ApolloProvider>
-      )
-    }
-  }
-  
-export default MyApp
+
+
+

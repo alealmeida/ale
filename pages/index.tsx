@@ -1,18 +1,27 @@
-import {Navbar} from "./../components/navbar/navbar";
 import {GetStaticProps} from "next"
-import {getAll} from "../lib/jobs.service";
-import Jobs from "./jobs";
+import {getJobsForHome} from "../graphql/jobs.query";
+import HighlightsJobs from "../components/jobshome/jobshome";
+import styles from './../styles/main.module.sass'
 
-const Home = ({jobs, pageProps}) => {
-    console.log(pageProps)
-    return (
+const Home = ({jobs}) => {
+    return ([
+        <section className={styles.intro}>
+            <header>
+                <h1>Alexandre Almeida</h1>
+                <h2>Product Designer na
+                <i><s> @Avec</s>  @Hyperlocal</i>. Lá crio novos produtos e experiências digitais que impactam na vida
+                    das pesssoas.</h2>
+            </header>
+        </section>,
         <section>
-            <h1>Sou Alexandre Almeida</h1>
+            {jobs.map((j, i) => <HighlightsJobs key={i} jobs={j}/>)}
         </section>
-    )
+    ])
 }
-export const getStaticProps: GetStaticProps = async (context) => {
-    const jobs = await getAll();
+
+export const getStaticProps: GetStaticProps = async () => {
+    const jobs = await getJobsForHome();
+
     return {
         props: {
             jobs: jobs
