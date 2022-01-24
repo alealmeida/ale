@@ -15,7 +15,7 @@ __webpack_require__.d(__webpack_exports__, {
 });
 
 ;// CONCATENATED MODULE: ./configs.json
-var configs_namespaceObject = JSON.parse('{"M":["http://localhost:1337","http://alexandrealmeida.me"]}');
+var configs_namespaceObject = JSON.parse('{"M":["http://localhost","http://alexandrealmeida.me"]}');
 ;// CONCATENATED MODULE: ./lib/imageUrl.js
 
 
