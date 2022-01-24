@@ -4,13 +4,8 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <link
-            rel="stylesheet"
-            href={`${this.props.__NEXT_DATA__.assetPrefix}/_next/static/style.css`}
-          />
-        </Head>
-        <body style={{ 'display': 'block !important' }}>
+        <Head />
+        <body>
           <Main />
           <NextScript />
         </body>
